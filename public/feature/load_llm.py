@@ -3,12 +3,12 @@ import tempfile
 import os
 import torch
 
-from transformers.utils.quantization_config import   # for compressing model e.g. 16bits -> 4bits
+from transformers.utils.quantization_config import BitsAndBytesConfig # for compressing model e.g. 16bits -> 4bits
 from transformers import (
-                          AutoTokenizer, # Tokenize Model
-                          AutoModelForCausalLM,  # LLM Loader - used for loading and using pre-trained models designed for causal language modeling tasks
-                          pipeline) # pipline to setup llm-task oritented model
-                                    # pipline("text-classification", model='model', device=0)
+						AutoTokenizer, # Tokenize Model
+						AutoModelForCausalLM,  # LLM Loader - used for loading and using pre-trained models designed for causal language modeling tasks
+						pipeline) # pipline to setup llm-task oritented model
+								# pipline("text-classification", model='model', device=0)
 
 from langchain_huggingface import HuggingFaceEmbeddings # huggingface sentence_transformer embedding models
 from langchain_huggingface.llms import HuggingFacePipeline # like transformer pipeline
@@ -25,7 +25,6 @@ from langchain_core.output_parsers import StrOutputParser # format LLM's output 
 from langchain import hub
 from langchain_core.prompts import PromptTemplate
 import json
-
 
 
 #? Read huggingface token in token.txt file. Please paste your huggingface token in token.txt
@@ -57,6 +56,7 @@ nf4_config = BitsAndBytesConfig(
 @st.cache_resource
 def load_llm():
     # MODEL_NAME= "lmsys/vicuna-7b-v1.5"
+    # MODEL_NAME = "google/gemma-7b-it"
     MODEL_NAME = "google/gemma-2b-it"
 
     model = AutoModelForCausalLM.from_pretrained(
