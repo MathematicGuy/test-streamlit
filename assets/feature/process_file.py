@@ -6,9 +6,6 @@ from pathlib import Path
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.document_loaders import Docx2txtLoader
 from langchain_community.document_loaders import UnstructuredExcelLoader
-from langchain_huggingface.embeddings import HuggingFaceEmbeddings
-from langchain_experimental.text_splitter import SemanticChunker
-from langchain_community.vectorstores import FAISS
 import tempfile
 import zipfile
 

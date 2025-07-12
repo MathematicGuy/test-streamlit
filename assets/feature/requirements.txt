@@ -1,15 +1,16 @@
+# requirements.txt
 streamlit
 torch
 transformers
-langchain
-langchain-community
 langchain-huggingface
+langchain-community
 langchain-experimental
 langchain-text-splitters
-faiss-cpu
-python-docx
-unstructured[xlsx]
-sentence-transformers
+langchain-core
 pypdf
-requests
-transformers
+docx2txt # for Docx2txtLoader
+openpyxl # for UnstructuredExcelLoader if it requires it, or unstructured if that's the dependency
+unstructured # for UnstructuredExcelLoader
+faiss-cpu # or faiss-gpu if you have a GPU and want to use it
+sentence-transformers # often a dependency of HuggingFaceEmbeddings for certain models
+

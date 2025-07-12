@@ -1,13 +1,9 @@
-from langchain_huggingface import HuggingFacePipeline
 import streamlit as st
 import os
 import requests
 import shutil
 from pathlib import Path
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_community.document_loaders import Docx2txtLoader
-from langchain_community.document_loaders import UnstructuredExcelLoader
-from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_experimental.text_splitter import SemanticChunker
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
@@ -17,13 +13,6 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 import time
 import tempfile
-import urllib.parse
-import zipfile
-from langchain_core.runnables import RunnableLambda
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
-
 
 
 st.set_page_config(
